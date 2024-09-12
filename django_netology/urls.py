@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from main.views import sample_controller
+from main.views import sample_controller, product_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', sample_controller)
+    path('', sample_controller),
+    path('products/', product_list),
 ]
+
