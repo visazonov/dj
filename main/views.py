@@ -6,7 +6,19 @@ from .models import Product
 def sample_controller(request):
     return HttpResponse('Hello')
 
+# def product_list(request):
+#     products = Product.objects.all()
+#     return HttpResponse(products)
+
 def product_list(request):
     products = Product.objects.all()
-    return HttpResponse(products)
+    return render(request, 'main/list.html', {'products': products})
+
+def product_details(request, product_id):
+    print(f'id njdfhf {product_id}')
+    try:
+        product = Product.objects.get(id=product_id)
+        return render(request, 'main/details.html', {'prod': product} )
+    except Product.DoesNotExist:
+        raise Http404('Товар не найден')
 
