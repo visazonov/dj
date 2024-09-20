@@ -15,7 +15,7 @@ def product_list(request):
     return render(request, 'main/list.html', {'products': products})
 
 def product_details(request, product_id):
-    print(f'id njdfhf {product_id}')
+    print(f'id продукта {product_id}')
     try:
         product = Product.objects.get(id=product_id)
         return render(request, 'main/details.html', {'prod': product} )
