@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from main.views import sample_controller, product_list, product_details
+from demo.views import hello, sum, pagi
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -27,4 +28,7 @@ urlpatterns = [
     path("", sample_controller, name="index"),
     path("products/", product_list, name="list"),
     path("products/<int:product_id>/", product_details, name="details"),
+    path("hello/", hello),
+    path('sum/<int:op1>/<int:op2>/', sum),
+    path('pagi/', pagi),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
