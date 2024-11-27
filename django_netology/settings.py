@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
+PASSWORD = os.getenv('PASSWORD')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "main",
     "demo",
+    'orm',
 ]
 
 MIDDLEWARE = [
@@ -79,10 +83,18 @@ WSGI_APPLICATION = "django_netology.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": 'demoorm',
+        "USER": 'postgres',
+        "PASSWORD": PASSWORD
     }
 }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 
 # Password validation

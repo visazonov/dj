@@ -23,6 +23,10 @@ from demo.views import hello, sum, pagi
 from django.conf import settings
 from django.conf.urls.static import static
 
+from orm.views import create_car, list_car, create_person
+from orm.views import create_car, list_car, create_person, list_person
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", sample_controller, name="index"),
@@ -31,4 +35,10 @@ urlpatterns = [
     path("hello/", hello),
     path('sum/<int:op1>/<int:op2>/', sum),
     path('pagi/', pagi),
+    # path('admin/', admin.site.urls),
+    path('new_car/', create_car),
+    path('cars/', list_car),
+    path('new_person/', create_person),
+    path('people/', list_person),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
