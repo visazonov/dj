@@ -26,6 +26,8 @@ from django.conf.urls.static import static
 from orm.views import create_car, list_car, create_person
 from orm.views import create_car, list_car, create_person, list_person
 
+from orm_advanced.views import list_orders
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -40,5 +42,7 @@ urlpatterns = [
     path('cars/', list_car),
     path('new_person/', create_person),
     path('people/', list_person),
+    path('orders/', list_orders),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

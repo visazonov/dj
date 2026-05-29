@@ -9,9 +9,9 @@ from orm.models import Car, Person
 
 def create_car(request):
     car = Car(
-        brand=random.choice(['B1', 'B2', 'B3']),
+        brand=random.choice(['Lada', 'Geely', 'Audi']),
         model=random.choice(['M1', 'M2', 'M3']),
-        color=random.choice(['C1', 'C2', 'C3']),
+        color=random.choice(['Белый', 'Черный', 'Оранжевый']),
     )
     car.save()
     return HttpResponse(f'Все получилось! Новая машина: {car.brand}, {car.model}')
@@ -20,6 +20,8 @@ def create_car(request):
 def list_car(request):
     car_objects = Car.objects.all()
     # car_objects = Car.objects.filter(brand='B1')
+    # car_objects = Car.objects.filter(brand__contains='2')
+    # car_objects = Car.objects.filter(brand__startswith='3'
     cars = [f'{c.id}: {c.brand}, {c.model}: {c.color} | {c.owners.count()}' for c in car_objects]
     return HttpResponse('<br>'.join(cars))
 

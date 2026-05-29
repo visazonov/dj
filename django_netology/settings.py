@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "main",
     "demo",
     'orm',
+    'orm_advanced',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": 'demoorm',
         "USER": 'postgres',
-        "PASSWORD": PASSWORD
+        "PASSWORD": PASSWORD,
     }
 }
 # DATABASES = {
