@@ -23,10 +23,14 @@ from demo.views import hello, sum, pagi
 from django.conf import settings
 from django.conf.urls.static import static
 
-from orm.views import create_car, list_car, create_person
 from orm.views import create_car, list_car, create_person, list_person
 
 from orm_advanced.views import list_orders
+from notes.views import list_notes_view
+
+# from api_demo.views import demo
+from api_demo.views import Api_demoViews
+from api_demo.views import WeaponView
 
 
 urlpatterns = [
@@ -43,6 +47,10 @@ urlpatterns = [
     path('new_person/', create_person),
     path('people/', list_person),
     path('orders/', list_orders),
+    path('notes/', list_notes_view),
+    # path('api_demo/', demo),
+    path('api_demo/', Api_demoViews.as_view()),
+    path('weapon/<pk>/', WeaponView.as_view()),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

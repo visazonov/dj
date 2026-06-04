@@ -17,6 +17,7 @@ load_dotenv()
 PASSWORD = os.getenv('PASSWORD')
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,6 +47,10 @@ INSTALLED_APPS = [
     "demo",
     'orm',
     'orm_advanced',
+    'notes',
+    "rest_framework",
+    'api_demo.apps.ApiDemoConfig',
+
 ]
 
 MIDDLEWARE = [

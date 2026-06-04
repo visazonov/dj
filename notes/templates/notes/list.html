@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Notes</title>
+</head>
+<body>
+    {% for n in notes %}
+        <div style="border: 1px solid black">
+            <p>{{n.text}}</p>
+            <p>{{ n.created_at|time:"H:i:s" }} {{ n.created_at|date:"d.m.y" }}</p>
+            <p>{{n.user.username}}</p>
+            <p>
+                {% for t in n.tags.all %}
+                    <span style="background-color: {{t.color}}">{{t.name}}</span>
+                {% endfor %}
+            </p>
+        </div>
+    {% endfor %}
+</body>
+</html>
