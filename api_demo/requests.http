@@ -1,0 +1,11 @@
+GET http://localhost:8000/api_demo/
+
+###
+
+POST http://localhost:8000/api_demo/
+
+###
+
+GET http://localhost:8000/weapon/1/
+
+###

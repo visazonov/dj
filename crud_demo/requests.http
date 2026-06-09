@@ -1,0 +1,69 @@
+@baseUrl = http://localhost:8000
+
+
+GET {{baseUrl}}/comments/
+
+###
+GET http://localhost:8000/comments/
+
+###
+
+### фильтр по user
+GET http://localhost:8000/comments/?user=1
+
+### фильтр по тексту
+GET http://localhost:8000/comments/?q=client
+
+### упорядочить по id
+GET http://localhost:8000/comments/?q=text&ordering=id
+
+### упорядочить по -created_at и id
+GET http://localhost:8000/comments/?o=-created_at, id
+
+### пагинация
+GET http://localhost:8000/comments/?page=1
+
+### пагинация с LimitOffsetPagination по 2 объекта на стр
+GET http://localhost:8000/comments/?limit=2
+
+### покажет 2 объекта начиная с 4 (пропустит 3)
+GET http://localhost:8000/comments/?limit=2&offset=3
+
+###
+
+POST http://localhost:8000/comments/
+Content-Type: application/json
+
+{
+    "user": 1,
+    "text": "text from rest client"
+}
+
+###
+
+GET http://localhost:8000/comments/2/
+
+### заменяет некоторые поля
+
+PATCH http://localhost:8000/comments/2/
+Content-Type: application/json
+
+{
+    "text": "new text2"
+}
+
+### полностью меняет полностью ресурс кроме Id
+
+PUT http://localhost:8000/comments/2/
+Content-Type: application/json
+
+{
+  "user": 1,
+  "text": "new text5"
+}
+
+###
+
+DELETE http://localhost:8000/comments/3/
+
+###

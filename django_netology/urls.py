@@ -16,6 +16,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from main.views import sample_controller, product_list, product_details
 from demo.views import hello, sum, pagi
@@ -32,6 +33,10 @@ from notes.views import list_notes_view
 from api_demo.views import Api_demoViews
 from api_demo.views import WeaponView
 
+from crud_demo.views import CommentViewSet
+
+r = DefaultRouter()
+r.register('comments', CommentViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -53,4 +58,6 @@ urlpatterns = [
     path('weapon/<pk>/', WeaponView.as_view()),
 
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + r.urls + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
