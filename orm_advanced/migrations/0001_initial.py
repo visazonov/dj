@@ -8,32 +8,69 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('price', models.IntegerField()),
-                ('category', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("price", models.IntegerField()),
+                ("category", models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='OrderPosition',
+            name="OrderPosition",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.IntegerField()),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='positions', to='orm_advanced.order')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='positions', to='orm_advanced.product')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("quantity", models.IntegerField()),
+                (
+                    "order",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="positions",
+                        to="orm_advanced.order",
+                    ),
+                ),
+                (
+                    "product",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="positions",
+                        to="orm_advanced.product",
+                    ),
+                ),
             ],
         ),
     ]

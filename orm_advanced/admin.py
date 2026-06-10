@@ -12,11 +12,13 @@ class OrderPositionInline(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'category', 'price']
-    list_filter = ['category']
+    list_display = ["id", "name", "category", "price"]
+    list_filter = ["category"]
 
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id']
-    inlines = [OrderPositionInline, ]
+    list_display = ["id"]
+    inlines = [
+        OrderPositionInline,
+    ]

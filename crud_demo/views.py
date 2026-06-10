@@ -16,8 +16,11 @@ class CommentViewSet(ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['user',]
-    search_fields = ['text',]
-    ordering_fields = ['id', 'user', 'text', 'created_at']
+    filterset_fields = [
+        "user",
+    ]
+    search_fields = [
+        "text",
+    ]
+    ordering_fields = ["id", "user", "text", "created_at"]
     pagination_class = LimitOffsetPagination
-

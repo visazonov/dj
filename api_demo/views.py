@@ -34,18 +34,10 @@ class Api_demoViews(ListAPIView):
     queryset = Weapon.objects.all()
     serializer_class = WeaponSerializer
 
-    def post(self,request):
-        return Response({'status': 'OK'})
+    def post(self, request):
+        return Response({"status": "OK"})
+
 
 class WeaponView(RetrieveAPIView):
     queryset = Weapon.objects.all()
     serializer_class = WeaponSerializer
-
-
-
-
-
-
-
-
-

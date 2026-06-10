@@ -16,6 +16,8 @@ class Order(models.Model):
 
 
 class OrderPosition(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='positions')
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='positions')
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name="positions"
+    )
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="positions")
     quantity = models.IntegerField()

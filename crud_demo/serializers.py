@@ -10,11 +10,11 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ['id', 'user', 'text', 'created_at']       # поля которые хотим отображать
+        fields = ["id", "user", "text", "created_at"]  # поля которые хотим отображать
 
     def validate_text(self, value):
-        if 'text' in value:
-            raise ValidationError('Вы использовали запрещенное слово - Текст ')
+        if "text" in value:
+            raise ValidationError("Вы использовали запрещенное слово - Текст ")
         return value
 
     # def validate(self, attrs):
@@ -25,4 +25,3 @@ class CommentSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         print(validated_data)
         return super().create(validated_data)
-

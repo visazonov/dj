@@ -17,8 +17,7 @@ from dotenv import load_dotenv
 import crud_demo
 
 load_dotenv()
-PASSWORD = os.getenv('PASSWORD')
-
+PASSWORD = os.getenv("PASSWORD")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,16 +47,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "main",
     "demo",
-    'orm',
-    'orm_advanced',
-    'notes',
-
+    "orm",
+    "orm_advanced",
+    "notes",
     "rest_framework",
-    'django_filters',
-
-    'api_demo.apps.ApiDemoConfig',
-    'crud_demo',
-
+    "django_filters",
+    "api_demo.apps.ApiDemoConfig",
+    "crud_demo",
 ]
 
 MIDDLEWARE = [
@@ -97,8 +93,8 @@ WSGI_APPLICATION = "django_netology.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'demoorm',
-        "USER": 'postgres',
+        "NAME": "demoorm",
+        "USER": "postgres",
         "PASSWORD": PASSWORD,
     }
 }
@@ -155,12 +151,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend',
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
     ],
-    'SEARCH_PARAM': 'q',
-    'ORDERING_PARAM': 'o',
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 3
+    "SEARCH_PARAM": "q",
+    "ORDERING_PARAM": "o",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 3,
 }
 

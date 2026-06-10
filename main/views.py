@@ -26,5 +26,3 @@ def product_details(request, product_id):
         return render(request, "main/details.html", {"prod": product})
     except Product.DoesNotExist:
         raise Http404("Товар не найден")
-
-

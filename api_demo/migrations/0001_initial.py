@@ -7,17 +7,24 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Weapon',
+            name="Weapon",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('power', models.IntegerField()),
-                ('rarity', models.CharField(max_length=50)),
-                ('value', models.IntegerField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("power", models.IntegerField()),
+                ("rarity", models.CharField(max_length=50)),
+                ("value", models.IntegerField()),
             ],
         ),
     ]

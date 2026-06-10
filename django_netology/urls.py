@@ -36,28 +36,28 @@ from api_demo.views import WeaponView
 from crud_demo.views import CommentViewSet
 
 r = DefaultRouter()
-r.register('comments', CommentViewSet)
+r.register("comments", CommentViewSet)
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", sample_controller, name="index"),
-    path("products/", product_list, name="list"),
-    path("products/<int:product_id>/", product_details, name="details"),
-    path("hello/", hello),
-    path('sum/<int:op1>/<int:op2>/', sum),
-    path('pagi/', pagi),
-    # path('admin/', admin.site.urls),
-    path('new_car/', create_car),
-    path('cars/', list_car),
-    path('new_person/', create_person),
-    path('people/', list_person),
-    path('orders/', list_orders),
-    path('notes/', list_notes_view),
-    # path('api_demo/', demo),
-    path('api_demo/', Api_demoViews.as_view()),
-    path('weapon/<pk>/', WeaponView.as_view()),
-
-
-] + r.urls + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
+urlpatterns = (
+    [
+        path("admin/", admin.site.urls),
+        path("", sample_controller, name="index"),
+        path("products/", product_list, name="list"),
+        path("products/<int:product_id>/", product_details, name="details"),
+        path("hello/", hello),
+        path("sum/<int:op1>/<int:op2>/", sum),
+        path("pagi/", pagi),
+        # path('admin/', admin.site.urls),
+        path("new_car/", create_car),
+        path("cars/", list_car),
+        path("new_person/", create_person),
+        path("people/", list_person),
+        path("orders/", list_orders),
+        path("notes/", list_notes_view),
+        # path('api_demo/', demo),
+        path("api_demo/", Api_demoViews.as_view()),
+        path("weapon/<pk>/", WeaponView.as_view()),
+    ]
+    + r.urls
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
